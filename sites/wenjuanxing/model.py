@@ -5,10 +5,10 @@ class SubmitData(object):
         self.type = "submitdata"
 
 class SubmitHeader(object):
-    def __init__(self, cookie,referer):
+    def __init__(self,referer):
         self.type = "header"
         self.referer = kv("Referer",referer)
-        self.cookie = kv("Cookie", cookie)
+        #self.cookie = kv("Cookie", cookie)
         self.origin = kv("Origin",'''https://www.wjx.cn''')
         self.userAgent = kv("User-Agent",'''Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36''')
         self.contentType = kv("Content-Type",'''application/x-www-form-urlencoded''')
@@ -18,7 +18,7 @@ class SubmitHeader(object):
         dict[self.origin.key] = self.origin.value
         dict[self.userAgent.key] = self.userAgent.value
         dict[self.contentType.key] = self.contentType.value
-        dict[self.cookie.key] = self.cookie.value
+        #dict[self.cookie.key] = self.cookie.value
         return dict
     
 
