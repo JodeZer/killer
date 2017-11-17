@@ -76,10 +76,13 @@ def downloadVery(url, cookieDict):
 def downloadVeryPic(id, cookieDict, time):
     url = '''https://www.wjx.cn/AntiSpamImageGen.aspx?q=''' + str(id) + "&t=" + str(time)
     response = requests.request("Get", url, cookies = cookieDict)
-    with open("a.png", "wb") as f:
+    fn = util.randomFileName()
+    fn += ".png"
+    with open(fn, "wb") as f:
         f.write(response.content)
+    return fn
 
 if __name__ == "__main__":
     #main()
     #print getCookie("")
-    downloadVeryPic("18227687",[], "1510906863464")
+    print downloadVeryPic("18227687",[], "1510906863464")

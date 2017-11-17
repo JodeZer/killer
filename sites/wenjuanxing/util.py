@@ -2,6 +2,7 @@
 import re
 import time
 import datetime
+import random
 
 def getId(url):
     return re.search('''https://www.wjx.cn/.+/([0-9]+).aspx?''', url).group(1)
@@ -19,4 +20,9 @@ def sitimulateTime(n):
         startFmt = datetime.datetime.fromtimestamp(startTs).strftime("%Y-%m-%d %H:%M:%S")
         ret.append([startFmt, endTs])
     return ret
+
+def randomFileName():
+    now = int(round(time.time()))
+    rand = random.randint(0, 1000)
+    return str(now) + "-" + str(rand) 
     
